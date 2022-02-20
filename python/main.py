@@ -19,9 +19,9 @@ def enter_guess(w_len: int, dictionary: list):
         print("Fault: Guessed word length should be {}".format(w_len))
         return enter_guess(w_len, dictionary)
     
-    if guess not in dictionary:
-        print("Fault: That's not a real word.")
-        return enter_guess(w_len, dictionary)
+    #if guess not in dictionary:
+    #    print("Fault: That's not a real word.")
+    #    return enter_guess(w_len, dictionary)
     
     return guess
 
