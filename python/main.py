@@ -2,6 +2,12 @@ import json
 import random
 from colorama import Style, Back, Fore
 
+def load_wordle():
+    with open(f'../wordle-possible-answers.json') as file:
+        words = json.load(file)
+        
+    return words
+
 def load_words(w_len):
     with open(f'../words-of-length-{w_len}.json') as file:
         words = json.load(file)
@@ -92,8 +98,8 @@ def game_logic(word: str, w_len: int, guesses: int):
         
 
 def main(w_len: int):
-    wordle_word = get_random_word(load_words(w_len))
-    guesses = 5
+    wordle_word = get_random_word(load_wordle())
+    guesses = 6
     print("Welcome to the hobbit wordle!")
     print("Same rules as wordle, your objective is to guess the right word using guesses and hints to figure it out!")
     win = game_logic(wordle_word, w_len, guesses)
